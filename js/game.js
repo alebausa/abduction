@@ -1,16 +1,15 @@
 class Game {
   constructor(ctx) {
-    // const canvas = document.getElementById("myCanvas");
-    // this.ctx = canvas.getContext("2d");
     this.ctx = ctx;
     this.canvasWidth = 900;
     this.canvasHeight = 650;
-    this.ufo = new Ufo(30, 30, 100, 40, "red", this.ctx);
+    this.ufo = new Ufo(30, 30, 80, 30, "red", this.ctx);
     this.keys = [];
     this.intervalGame = undefined;
   }
 
   _drawBuildings() {
+    //fix
     let floor = new Component(0, 550, 900, 100, "grey", this.ctx);
     let building1 = new Component(100, 325, 150, 225, "brown", this.ctx);
     let building2 = new Component(255, 350, 145, 200, "gold", this.ctx);
@@ -48,6 +47,8 @@ class Game {
     if (this.keys[39]) {
       this.ufo.moveRight();
     }
+
+    // if (this.keys)
   }
 
   _update() {

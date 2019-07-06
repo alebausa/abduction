@@ -12,12 +12,5 @@ document.onload = (function() {
     document.getElementById("myCanvas").style = "display: block;";
     game = new Game(ctx);
     game.start();
-
-    // function update() {
-    //   ctx.clearRect(0, 0, canvas.width, canvas.height);
-    //   game.start();
-    //   console.log("setInterval working");
-    // }
-    // setInterval(update, 1000);
   }
 })();

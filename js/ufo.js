@@ -14,10 +14,15 @@ class Ufo {
   }
 
   moveRight() {
-    this.x += 3;
+    this.x += 4;
   }
 
   moveLeft() {
-    this.x -= 3;
+    this.x -= 4;
   }
+
+  // abduct() {
+  //   this.ctx.fillStyle = "#FFFACD";
+  //   this.ctx.fillRect(this.x, this.y, 15, 80);
+  // }
 }

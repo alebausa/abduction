@@ -7,5 +7,5 @@ class Component {
     this.color = color;
     ctx.fillStyle = color;
     ctx.fillRect(this.x, this.y, this.width, this.height);
-  }
+  } //separar pintar
 }
