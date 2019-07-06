@@ -1,7 +1,5 @@
 class Component {
-  constructor(x, y, width, height, color) {
-    const canvas = document.getElementById("myCanvas");
-    const ctx = canvas.getContext("2d");
+  constructor(x, y, width, height, color, ctx) {
     this.width = width;
     this.height = height;
     this.x = x;

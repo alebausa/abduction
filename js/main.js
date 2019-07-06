@@ -1,4 +1,5 @@
 var game;
+
 document.onload = (function() {
   const canvas = document.getElementById("myCanvas");
   const ctx = canvas.getContext("2d");
@@ -12,11 +13,11 @@ document.onload = (function() {
     game = new Game(ctx);
     game.start();
 
-    function update() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      game.start();
-      console.log("setInterval working");
-    }
-    setInterval(update, 10);
+    // function update() {
+    //   ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //   game.start();
+    //   console.log("setInterval working");
+    // }
+    // setInterval(update, 1000);
   }
 })();
