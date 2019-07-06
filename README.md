@@ -32,6 +32,7 @@ The MVP includes the following items graphically represented by colors:
 - Abduction animation
 - Second & posterior levels
 - Screens style
+- Pause functionality
 
 ## Data structure
 
@@ -53,6 +54,12 @@ methods: appear, beAbducted, move right, move left
 class Enemy {
 properties: drection/position
 methods: appear, beAbducted, move right, move left
+}
+
+class Game {
+\_start
+\_update
+\_paint
 }
 
 ## States y States Transitions
