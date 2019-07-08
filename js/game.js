@@ -48,13 +48,15 @@ class Game {
       this.ufo.moveRight();
     }
 
-    // if (this.keys)
+    if (this.keys[32]) {
+      this.ufo.abduct();
+    }
   }
 
   _update() {
     this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
     this._assignControls();
-    this.ufo.draw();
+    this.ufo._draw();
     this._drawBuildings();
     this.intervalGame = window.requestAnimationFrame(this._update.bind(this));
   }

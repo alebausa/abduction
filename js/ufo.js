@@ -8,7 +8,7 @@ class Ufo {
     this.color = color;
   }
 
-  draw() {
+  _draw() {
     this.ctx.fillStyle = this.color;
     this.ctx.fillRect(this.x, this.y, this.width, this.height);
   }
@@ -21,8 +21,8 @@ class Ufo {
     this.x -= 4;
   }
 
-  // abduct() {
-  //   this.ctx.fillStyle = "#FFFACD";
-  //   this.ctx.fillRect(this.x, this.y, 15, 80);
-  // }
+  abduct() {
+    this.ctx.fillStyle = "#FFFACD";
+    this.ctx.fillRect(this.x + 33, 60, 15, 490);
+  }
 }
