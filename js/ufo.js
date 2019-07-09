@@ -5,6 +5,7 @@ class Ufo {
     this.x = x;
     this.y = y;
     this.color = color;
+    this.ray = new Ray(this.x + 33, 60, 15, 490, "#FFFACD");
   }
 
   _draw(ctx) {
@@ -14,14 +15,11 @@ class Ufo {
 
   moveRight() {
     this.x += 4;
+    this.ray.x += 4;
   }
 
   moveLeft() {
     this.x -= 4;
-  }
-
-  abduct(ctx) {
-    ctx.fillStyle = "#FFFACD";
-    ctx.fillRect(this.x + 33, 60, 15, 490);
+    this.ray.x -= 4;
   }
 }

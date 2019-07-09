@@ -29,6 +29,8 @@ class Game {
     this.windows[randomWindow]._addPerson();
   }
 
+  _checkCollision() {}
+
   _assignControls() {
     window.addEventListener(
       "keydown",
@@ -53,9 +55,8 @@ class Game {
     }
 
     if (this.keys[32]) {
-      this.ufo.abduct(this.ctx);
+      this.ufo.ray._draw(this.ctx);
     }
-
     //si apreto la P, status pause
   }
 
