@@ -10,6 +10,7 @@ class Game {
     this.ufo = new Ufo(30, 30, 80, 30, "red");
     this.status = undefined;
     this.intervalPersonGenerator = undefined;
+    this.victimCounter = 0;
   }
 
   _paintBuildings() {
@@ -29,7 +30,21 @@ class Game {
     this.windows[randomWindow]._addPerson();
   }
 
-  _checkCollision() {}
+  _checkCollision() {
+    for (let i = 0; i < this.windows.length; i++) {
+      if (
+        this.keys[32] &&
+        this.ufo.ray.x >= windows[i].x &&
+        this.ufo.ray.x <= windows[i].x + windows[i].width
+      ) {
+        if (this.windows[i].hasPerson) {
+          this.windows[i].hasPerson = false;
+          this.victimCounter++;
+        }
+      }
+    }
+    console.log(this.victimCounter);
+  }
 
   _assignControls() {
     window.addEventListener(
@@ -67,6 +82,7 @@ class Game {
     this._paintWindows();
     this.floor._drawBuilding(this.ctx);
     this.ufo._draw(this.ctx);
+    this._checkCollision();
     this.intervalGame = window.requestAnimationFrame(
       this._checkStatus.bind(this)
     );
