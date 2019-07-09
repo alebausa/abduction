@@ -1,6 +1,5 @@
 class Ufo {
-  constructor(x, y, width, height, color, ctx) {
-    this.ctx = ctx;
+  constructor(x, y, width, height, color) {
     this.width = width;
     this.height = height;
     this.x = x;
@@ -8,9 +7,9 @@ class Ufo {
     this.color = color;
   }
 
-  _draw() {
-    this.ctx.fillStyle = this.color;
-    this.ctx.fillRect(this.x, this.y, this.width, this.height);
+  _draw(ctx) {
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 
   moveRight() {
@@ -21,8 +20,8 @@ class Ufo {
     this.x -= 4;
   }
 
-  abduct() {
-    this.ctx.fillStyle = "#FFFACD";
-    this.ctx.fillRect(this.x + 33, 60, 15, 490);
+  abduct(ctx) {
+    ctx.fillStyle = "#FFFACD";
+    ctx.fillRect(this.x + 33, 60, 15, 490);
   }
 }

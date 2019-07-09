@@ -12,5 +12,7 @@ document.onload = (function() {
     document.getElementById("myCanvas").style = "display: block;";
     game = new Game(ctx);
     game.start();
+
+    //pause pinta div de PAUSE
   }
 })();
