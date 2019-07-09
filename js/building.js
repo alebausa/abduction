@@ -6,7 +6,7 @@ class Building {
     this.x = x;
     this.y = y;
     this.color = color;
-    ctx.fillStyle = color;
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    this.ctx.fillStyle = color;
+    this.ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 }

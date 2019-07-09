@@ -4,8 +4,8 @@ class Game {
     this.canvasWidth = 900;
     this.canvasHeight = 650;
     this.ufo = new Ufo(30, 30, 80, 30, "red", this.ctx);
-    this.window1 = new Window(135, 345, 20, 20, "white", this.ctx);
     this.keys = [];
+    this.windows = [];
     this.intervalGame = undefined;
   }
 
@@ -15,14 +15,39 @@ class Game {
     let building2 = new Building(255, 350, 145, 200, "gold", this.ctx);
     let building3 = new Building(500, 190, 100, 360, "blue", this.ctx);
     let building4 = new Building(620, 190, 100, 360, "blue", this.ctx);
-    let windows1 = new Window(135, 345, 20, 20, "white", this.ctx);
-    let windows2 = new Window(195, 345, 20, 20, "white", this.ctx);
-    let windows3 = new Window(135, 390, 20, 20, "white", this.ctx);
-    let windows4 = new Window(195, 390, 20, 20, "white", this.ctx);
-    let windows5 = new Window(135, 435, 20, 20, "white", this.ctx);
-    let windows6 = new Window(195, 435, 20, 20, "white", this.ctx);
-    let windows7 = new Window(135, 480, 20, 20, "white", this.ctx);
-    let windows8 = new Window(195, 480, 20, 20, "white", this.ctx);
+  }
+
+  _createWindows() {
+    let window1 = new Window(135, 345, 20, 20, "white", this.ctx);
+    let window2 = new Window(195, 345, 20, 20, "white", this.ctx);
+    let window3 = new Window(135, 390, 20, 20, "white", this.ctx);
+    let window4 = new Window(195, 390, 20, 20, "white", this.ctx);
+    let window5 = new Window(135, 435, 20, 20, "white", this.ctx);
+    let window6 = new Window(195, 435, 20, 20, "white", this.ctx);
+    let window7 = new Window(135, 480, 20, 20, "white", this.ctx);
+    let window8 = new Window(195, 480, 20, 20, "white", this.ctx);
+    this.windows.push(
+      window1,
+      window2,
+      window3,
+      window4,
+      window5,
+      window6,
+      window7,
+      window8
+    );
+  }
+
+  _paintWindows() {
+    this._createWindows();
+    for (let i = 0; i < this.windows.length; i++) {
+      this.windows[i]._drawWindow();
+    }
+  }
+
+  _randomPerson() {
+    var randomWindow = Math.floor(Math.random() * this.windows.length);
+    this.windows[randomWindow]._addPerson();
   }
 
   _assignControls() {
@@ -58,6 +83,12 @@ class Game {
     this._assignControls();
     this.ufo._draw();
     this._drawScenario();
+    this._paintWindows();
+    setInterval(() => {
+      this._randomPerson();
+    }, 3000).bind(this);
+    // this._randomPerson();
+    // setInterval(this._randomPerson, 3000);
     this.intervalGame = window.requestAnimationFrame(this._update.bind(this));
   }
 
