@@ -20,8 +20,41 @@ const windows = [
   new Window(355, 465, 20, 20, "white"),
   new Window(275, 510, 20, 20, "white"),
   new Window(315, 510, 20, 20, "white"),
-  new Window(355, 510, 20, 20, "white")
+  new Window(355, 510, 20, 20, "white"),
   //twin tower 1
+  new Window(520, 210, 20, 20, "white"),
+  new Window(560, 210, 20, 20, "white"),
+  new Window(520, 250, 20, 20, "white"),
+  new Window(560, 250, 20, 20, "white"),
+  new Window(520, 290, 20, 20, "white"),
+  new Window(560, 290, 20, 20, "white"),
+  new Window(520, 330, 20, 20, "white"),
+  new Window(560, 330, 20, 20, "white"),
+  new Window(520, 370, 20, 20, "white"),
+  new Window(560, 370, 20, 20, "white"),
+  new Window(520, 410, 20, 20, "white"),
+  new Window(560, 410, 20, 20, "white"),
+  new Window(520, 450, 20, 20, "white"),
+  new Window(560, 450, 20, 20, "white"),
+  new Window(520, 490, 20, 20, "white"),
+  new Window(560, 490, 20, 20, "white"),
+  //twin tower 2
+  new Window(640, 210, 20, 20, "white"),
+  new Window(680, 210, 20, 20, "white"),
+  new Window(640, 250, 20, 20, "white"),
+  new Window(680, 250, 20, 20, "white"),
+  new Window(640, 290, 20, 20, "white"),
+  new Window(680, 290, 20, 20, "white"),
+  new Window(640, 330, 20, 20, "white"),
+  new Window(680, 330, 20, 20, "white"),
+  new Window(640, 370, 20, 20, "white"),
+  new Window(680, 370, 20, 20, "white"),
+  new Window(640, 410, 20, 20, "white"),
+  new Window(680, 410, 20, 20, "white"),
+  new Window(640, 450, 20, 20, "white"),
+  new Window(680, 450, 20, 20, "white"),
+  new Window(640, 490, 20, 20, "white"),
+  new Window(680, 490, 20, 20, "white")
 ];
 
 const buildings = [
