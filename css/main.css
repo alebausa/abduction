@@ -1,11 +1,54 @@
 * {
   box-sizing: border-box;
+  color: white;
+  font-family: "Audiowide", curisve;
+}
+
+body {
+  background-color: black;
 }
 
 /********** CANVAS ***********/
+#game-container {
+  width: 900px;
+  height: 650px;
+  background-image: url("../img/ufo-bg.jpg");
+  background-size: cover;
+  display: block;
+}
 
-canvas {
-  border: 1px solid black;
+/**********START PANEL*********/
+
+#start-panel {
+  padding-top: 120px;
+  padding-left: 50px;
+}
+
+#start-btn {
+  background-color: black;
+  font-size: 2em;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+#instructions {
+  margin-top: 50px;
+  width: 270px;
+  line-height: 8px;
+  border: 1px dotted white;
+  padding: 10px;
+}
+
+/********* PAUSE PANEL *******/
+
+#pause-panel {
+  margin-top: -500px;
+  margin-left: 200px;
+  border: 2px dotted white;
+  font-size: 2em;
+  width: 330px;
+  border-radius: 10px;
+  padding-left: 25px;
 }
 
 /******* VICTIM COUNTER *****/
