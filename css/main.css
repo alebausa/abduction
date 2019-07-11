@@ -9,3 +9,9 @@ canvas {
 }
 
 /******* VICTIM COUNTER *****/
+
+#counter {
+  margin-top: -40px;
+  margin-left: 20px;
+  position: absolute;
+}

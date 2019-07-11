@@ -14,19 +14,19 @@ class Ufo {
   }
 
   moveRight() {
-    this.x += 4;
-    this.ray.x += 4;
+    this.x += 5;
+    this.ray.x += 5;
     if (this.x > 900) {
-      this.x = 1;
+      this.x = -80;
       this.ray.x = this.x + 33;
     }
   }
 
   moveLeft() {
-    this.x -= 4;
-    this.ray.x -= 4;
-    if (this.x < 0) {
-      this.x = 900;
+    this.x -= 5;
+    this.ray.x -= 5;
+    if (this.x + 80 < 0) {
+      this.x = 901;
       this.ray.x = this.x + 33;
     }
   }

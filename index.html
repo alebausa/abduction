@@ -8,14 +8,26 @@
     <link rel="stylesheet" href="css/main.css" type="text/css" />
   </head>
   <body>
-    <div id="start-panel">
-      <p>Move the UFO left or right</p>
-      <p>Press the spacebar to abduct as many people as possible</p>
-      <button id="start-btn">START!</button>
+    <div id="game-container">
+      <div id="start-panel">
+        <p>Move the UFO left or right</p>
+        <p>Press the spacebar to abduct as many people as possible</p>
+        <button id="start-btn">START!</button>
+      </div>
+      <canvas
+        width="900"
+        height="650"
+        id="myCanvas"
+        style="display: none;"
+      ></canvas>
+      <div id="pause-panel" style="display: none;">
+        <p>Game is paused</p>
+        <button id="pause-btn">CONTINUE</button>
+      </div>
+      <div id="counter" style="display:none;">
+        People abducted: <span id="victims">0</span>
+      </div>
     </div>
-    <canvas width="900" height="650" id="myCanvas" style="display:none;">
-      <div class="counter">People abducted: <span class="victims">0</span></div>
-    </canvas>
 
     <script src="js/ray.js"></script>
     <script src="js/ufo.js"></script>

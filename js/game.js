@@ -43,7 +43,7 @@ class Game {
         }
       }
     }
-    console.log(this.victimCounter);
+    document.getElementById("victims").innerHTML = this.victimCounter;
   }
 
   _assignControls() {
@@ -72,6 +72,10 @@ class Game {
     if (this.keys[32]) {
       this.ufo.ray._draw(this.ctx);
     }
+
+    if (this.keys[80]) {
+      this.pause();
+    }
     //si apreto la P, status pause
   }
 
@@ -96,6 +100,17 @@ class Game {
       case "paused":
         break;
     }
+  }
+
+  pause() {
+    this.status = "paused";
+    document.getElementById("pause-panel").style = "display: block;";
+  }
+
+  resume() {
+    this.status = "running";
+    document.getElementById("pause-panel").style = "display: none;";
+    this._checkStatus();
   }
 
   start() {
