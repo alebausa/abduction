@@ -76,6 +76,10 @@ class Game {
     if (this.keys[80]) {
       this.pause();
     }
+
+    if (this.keys[13]) {
+      this.resume();
+    }
     //si apreto la P, status pause
   }
 
@@ -104,12 +108,15 @@ class Game {
 
   pause() {
     this.status = "paused";
+    document.getElementsByTagName("canvas").style = "filter: blur(6px);";
     document.getElementById("pause-panel").style = "display: block;";
+    document.getElementById("pause-panel").style = "position: absolute;";
   }
 
   resume() {
     this.status = "running";
     document.getElementById("pause-panel").style = "display: none;";
+    document.getElementsByTagName("canvas").style = "filter: blur(0px);";
     this._checkStatus();
   }
 

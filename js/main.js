@@ -7,7 +7,7 @@ document.onload = (function() {
   var startBtn = document.getElementById("start-btn");
   startBtn.addEventListener("click", startGame);
 
-  var continueBtn = document.getElementById("pause-btn");
+  var continueBtn = document.getElementById("continue-btn");
   continueBtn.addEventListener("click", resumeGame);
 
   function startGame() {
