@@ -5,13 +5,32 @@ class Ufo {
     this.x = x;
     this.y = y;
     this.color = color;
-    this.ray = new Ray(this.x + 33, 60, 15, 490, "#FFFACD");
+    this.ray = new Ray(this.x + 33, 60, 50, 700, "#FFFACD");
   }
 
   _draw(ctx) {
-    // ctx.fillStyle = this.color;
-    // ctx.fillRect(this.x, this.y, this.width, this.height);
-    ctx.drawImage(myUfo, 0, 0, 50, 50, this.x, this.x, this.width, this.height);
+    ctx.drawImage(
+      myUfo.sprite,
+      myUfo.x,
+      0,
+      54,
+      42,
+      this.x,
+      this.y,
+      this.width,
+      this.height
+    );
+  }
+
+  _animate() {
+    setInterval(function() {
+      myUfo.x += myUfo.width;
+      myUfo.actualStep++;
+      if (myUfo.actualStep === myUfo.totalSteps) {
+        myUfo.actualStep = 1;
+        myUfo.x = 0;
+      }
+    }, 500);
   }
 
   moveRight() {

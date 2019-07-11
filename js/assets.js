@@ -64,7 +64,17 @@ const buildings = [
   new Building(620, 190, 100, 360, "blue")
 ];
 
-const floor = new Building(0, 550, 900, 100, "grey");
+const myUfo = {
+  sprite: new Image(),
+  width: 60,
+  x: 0,
+  actualStep: 1,
+  totalSteps: 6
+};
+myUfo.sprite.src = "./img/ufo-sprite.png";
 
-const myUfo = new Image();
-myUfo.src = "./img/ufo-sprite.png";
+const myFloor = {
+  sprite: new Image(),
+  width: 1427
+};
+myFloor.sprite.src = "./img/floor.png";

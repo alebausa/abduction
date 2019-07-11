@@ -6,8 +6,8 @@ class Game {
     this.keys = [];
     this.windows = windows;
     this.buildings = buildings;
-    this.floor = floor;
-    this.ufo = new Ufo(30, 30, 80, 30, "red");
+    this.floor = new Floor(0, 550, 900, 100, "grey");
+    this.ufo = new Ufo(30, 30, 80, 50, "red");
     this.status = undefined;
     this.intervalPersonGenerator = undefined;
     this.victimCounter = 0;
@@ -88,7 +88,7 @@ class Game {
     this._assignControls();
     this._paintBuildings();
     this._paintWindows();
-    this.floor._drawBuilding(this.ctx);
+    this.floor._drawFloor(this.ctx);
     this.ufo._draw(this.ctx);
     this._checkCollision();
     this.intervalGame = window.requestAnimationFrame(
@@ -122,7 +122,7 @@ class Game {
 
   start() {
     this.status = "running";
-    // sprite(this.ctx);
+    this.ufo._animate();
     this.intervalPersonGenerator = setInterval(() => {
       this._generatePerson();
     }, 3000);

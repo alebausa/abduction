@@ -8,7 +8,16 @@ class Ray {
   }
 
   _draw(ctx) {
-    ctx.fillStyle = this.color;
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.drawImage(
+      myUfo.sprite,
+      0,
+      0,
+      661,
+      309,
+      this.x,
+      this.y,
+      this.width,
+      this.height
+    );
   }
 }
