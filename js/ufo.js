@@ -9,8 +9,9 @@ class Ufo {
   }
 
   _draw(ctx) {
-    ctx.fillStyle = this.color;
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    // ctx.fillStyle = this.color;
+    // ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.drawImage(myUfo, 0, 0, 50, 50, this.x, this.x, this.width, this.height);
   }
 
   moveRight() {

@@ -122,6 +122,7 @@ class Game {
 
   start() {
     this.status = "running";
+    // sprite(this.ctx);
     this.intervalPersonGenerator = setInterval(() => {
       this._generatePerson();
     }, 3000);

@@ -65,3 +65,6 @@ const buildings = [
 ];
 
 const floor = new Building(0, 550, 900, 100, "grey");
+
+const myUfo = new Image();
+myUfo.src = "./img/ufo-sprite.png";

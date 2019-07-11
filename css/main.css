@@ -17,6 +17,11 @@ body {
   display: block;
 }
 
+canvas {
+  background-image: url("../img/night-sky.jpg");
+  background-size: cover;
+}
+
 /**********START PANEL*********/
 
 #start-panel {
