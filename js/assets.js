@@ -75,6 +75,7 @@ myUfo.sprite.src = "./img/ufo-sprite.png";
 
 const myFloor = {
   sprite: new Image(),
-  width: 900
+  width: 384,
+  x: 15
 };
 myFloor.sprite.src = "./img/floor.png";
