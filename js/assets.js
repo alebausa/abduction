@@ -66,8 +66,8 @@ const buildings = [
 
 const myUfo = {
   sprite: new Image(),
-  width: 60,
-  x: 0,
+  width: 62,
+  x: 4,
   actualStep: 1,
   totalSteps: 6
 };
@@ -75,6 +75,6 @@ myUfo.sprite.src = "./img/ufo-sprite.png";
 
 const myFloor = {
   sprite: new Image(),
-  width: 1427
+  width: 900
 };
 myFloor.sprite.src = "./img/floor.png";

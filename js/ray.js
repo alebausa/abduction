@@ -10,10 +10,10 @@ class Ray {
   _draw(ctx) {
     ctx.drawImage(
       myUfo.sprite,
-      0,
-      0,
-      661,
-      309,
+      188,
+      85,
+      7,
+      71,
       this.x,
       this.y,
       this.width,

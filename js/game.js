@@ -7,7 +7,7 @@ class Game {
     this.windows = windows;
     this.buildings = buildings;
     this.floor = new Floor(0, 550, 900, 100, "grey");
-    this.ufo = new Ufo(30, 30, 80, 50, "red");
+    this.ufo = new Ufo(30, 30, 80, 65, "red");
     this.status = undefined;
     this.intervalPersonGenerator = undefined;
     this.victimCounter = 0;
@@ -122,7 +122,7 @@ class Game {
 
   start() {
     this.status = "running";
-    this.ufo._animate();
+    // this.ufo._animate();
     this.intervalPersonGenerator = setInterval(() => {
       this._generatePerson();
     }, 3000);

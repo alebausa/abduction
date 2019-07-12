@@ -5,7 +5,7 @@ class Ufo {
     this.x = x;
     this.y = y;
     this.color = color;
-    this.ray = new Ray(this.x + 33, 60, 50, 700, "#FFFACD");
+    this.ray = new Ray(this.x + 33, 80, 18, 430, "#FFFACD");
   }
 
   _draw(ctx) {
@@ -22,16 +22,16 @@ class Ufo {
     );
   }
 
-  _animate() {
-    setInterval(function() {
-      myUfo.x += myUfo.width;
-      myUfo.actualStep++;
-      if (myUfo.actualStep === myUfo.totalSteps) {
-        myUfo.actualStep = 1;
-        myUfo.x = 0;
-      }
-    }, 500);
-  }
+  // _animate() {
+  //   setInterval(function() {
+  //     myUfo.x += myUfo.width;
+  //     myUfo.actualStep++;
+  //     if (myUfo.actualStep === myUfo.totalSteps) {
+  //       myUfo.actualStep = 1;
+  //       myUfo.x = 0;
+  //     }
+  //   }, 500);
+  // }
 
   moveRight() {
     this.x += 5;
