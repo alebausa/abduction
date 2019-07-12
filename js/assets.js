@@ -79,3 +79,31 @@ const myFloor = {
   x: 15
 };
 myFloor.sprite.src = "./img/floor.png";
+
+const wallOne = {
+  sprite: new Image(),
+  width: 695,
+  x: 0
+};
+wallOne.sprite.src = "./img/greywall.jpg";
+
+const windowOff = {
+  sprite: new Image(),
+  width: 649,
+  x: 71
+};
+windowOff.sprite.src = "./img/windowframe_empty.png";
+
+const windowOn = {
+  sprite: new Image(),
+  width: 649,
+  x: 71
+};
+windowOn.sprite.src = "./img/windowframe_on.png";
+
+const characters = {
+  sprite: new Image(),
+  width: 64,
+  x: 156
+};
+characters.sprite.src = "./img/people.png";
