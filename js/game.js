@@ -8,7 +8,7 @@ class Game {
     this.buildings = buildings;
     this.floor = new Floor(0, 550, 900, 100, "grey");
     this.ufo = new Ufo(30, 30, 80, 65, "red");
-    this.car = new Car(-100, 550, 90, 40, "blue");
+    this.car = new Car(-100, 550, 100, 50, "blue");
     this.status = undefined;
     this.intervalPersonGenerator = undefined;
     this.victimCounter = 0;
@@ -47,6 +47,13 @@ class Game {
     document.getElementById("victims").innerHTML = this.victimCounter;
   }
 
+  _checkCar() {
+    if (this.car.x === 300 && this.ufo.status === "visible") {
+      console.log("DEAD!");
+      document.getElementById("dead-panel").style = "display: block;";
+    }
+  }
+
   _assignControls() {
     window.addEventListener(
       "keydown",
@@ -81,7 +88,11 @@ class Game {
     if (this.keys[13]) {
       this.resume();
     }
-    //si apreto la P, status pause
+
+    if (this.keys[72]) {
+      this.ufo.status = "hidden";
+      this.ufo.hide();
+    }
   }
 
   _update() {
@@ -94,6 +105,7 @@ class Game {
     this._checkCollision();
     this.car._draw(this.ctx);
     this.car._drive();
+    this._checkCar();
     this.intervalGame = window.requestAnimationFrame(
       this._checkStatus.bind(this)
     );
@@ -126,6 +138,7 @@ class Game {
   start() {
     this.status = "running";
     // this.ufo._animate();
+    // this.car._animate();
     this.intervalPersonGenerator = setInterval(() => {
       this._generatePerson();
     }, 3000);

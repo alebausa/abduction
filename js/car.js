@@ -14,7 +14,7 @@ class Car {
       5,
       0,
       145,
-      166,
+      69,
       this.x,
       this.y,
       this.width,
@@ -24,18 +24,18 @@ class Car {
 
   // _animate() {
   //   setInterval(function() {
-  //     myUfo.x += myUfo.width;
-  //     myUfo.actualStep++;
-  //     if (myUfo.actualStep === myUfo.totalSteps) {
-  //       myUfo.actualStep = 1;
-  //       myUfo.x = 0;
+  //     policeCar.x += policeCar.width;
+  //     policeCar.actualStep++;
+  //     if (policeCar.actualStep === policeCar.totalSteps) {
+  //       policeCar.actualStep = 1;
+  //       policeCar.x = 0;
   //     }
   //   }, 500);
   // }
 
   _drive() {
     setInterval(() => {
-      this.x = this.x + 2;
-    }, 1000);
+      this.x = this.x + 1;
+    }, 600);
   }
 }

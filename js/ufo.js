@@ -6,20 +6,23 @@ class Ufo {
     this.y = y;
     this.color = color;
     this.ray = new Ray(this.x + 33, 80, 18, 430, "#FFFACD");
+    this.status = "visible"; //"hidden"
   }
 
   _draw(ctx) {
-    ctx.drawImage(
-      myUfo.sprite,
-      myUfo.x,
-      0,
-      54,
-      42,
-      this.x,
-      this.y,
-      this.width,
-      this.height
-    );
+    if (game.ufo.status === "visible") {
+      ctx.drawImage(
+        myUfo.sprite,
+        myUfo.x,
+        0,
+        54,
+        42,
+        this.x,
+        this.y,
+        this.width,
+        this.height
+      );
+    }
   }
 
   // _animate() {
@@ -48,6 +51,16 @@ class Ufo {
     if (this.x + 80 < 0) {
       this.x = 901;
       this.ray.x = this.x + 33;
+    }
+  }
+
+  hide() {
+    console.log("hidden!");
+    console.log(game.ufo.status);
+    if (game.ufo.status === "hidden") {
+      this.width = 0;
+      this.height = 0;
+      this.ray.width = 0;
     }
   }
 }
