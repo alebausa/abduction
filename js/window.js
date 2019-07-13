@@ -38,8 +38,8 @@ class Window {
       );
       ctx.drawImage(
         characters.sprite,
-        156,
-        4,
+        405,
+        3,
         64,
         78,
         this.x + 2,

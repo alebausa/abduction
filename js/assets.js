@@ -107,3 +107,12 @@ const characters = {
   x: 156
 };
 characters.sprite.src = "./img/people.png";
+
+const policeCar = {
+  sprite: new Image(),
+  width: 145,
+  x: 5,
+  actualStep: 1,
+  totalSteps: 7
+};
+policeCar.sprite.src = "./img/policecar.png";

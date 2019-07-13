@@ -8,6 +8,7 @@ class Game {
     this.buildings = buildings;
     this.floor = new Floor(0, 550, 900, 100, "grey");
     this.ufo = new Ufo(30, 30, 80, 65, "red");
+    this.car = new Car(-100, 550, 90, 40, "blue");
     this.status = undefined;
     this.intervalPersonGenerator = undefined;
     this.victimCounter = 0;
@@ -91,6 +92,8 @@ class Game {
     this.floor._drawFloor(this.ctx);
     this.ufo._draw(this.ctx);
     this._checkCollision();
+    this.car._draw(this.ctx);
+    this.car._drive();
     this.intervalGame = window.requestAnimationFrame(
       this._checkStatus.bind(this)
     );
