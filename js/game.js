@@ -48,9 +48,11 @@ class Game {
   }
 
   _checkCar() {
-    if (this.car.x === 300 && this.ufo.status === "visible") {
+    if (this.car.x === 400 && !this.ufo.hidden) {
       console.log("DEAD!");
       document.getElementById("dead-panel").style = "display: block;";
+      document.getElementById("dead-panel").style = "position: absolute;";
+      this.status = "paused";
     }
   }
 
@@ -90,7 +92,6 @@ class Game {
     }
 
     if (this.keys[72]) {
-      this.ufo.status = "hidden";
       this.ufo.hide();
     }
   }
@@ -104,7 +105,9 @@ class Game {
     this.ufo._draw(this.ctx);
     this._checkCollision();
     this.car._draw(this.ctx);
-    this.car._drive();
+    setInterval(() => {
+      this.car._drive();
+    }, 7000);
     this._checkCar();
     this.intervalGame = window.requestAnimationFrame(
       this._checkStatus.bind(this)
@@ -137,6 +140,7 @@ class Game {
 
   start() {
     this.status = "running";
+    document.getElementById("dead-panel").style = "display: none;";
     // this.ufo._animate();
     // this.car._animate();
     this.intervalPersonGenerator = setInterval(() => {

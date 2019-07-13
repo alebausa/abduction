@@ -10,6 +10,9 @@ document.onload = (function() {
   var continueBtn = document.getElementById("continue-btn");
   continueBtn.addEventListener("click", resumeGame);
 
+  var aliveBtn = document.getElementById("alive-btn");
+  aliveBtn.addEventListener("click", startGame);
+
   function startGame() {
     document.getElementById("start-panel").style = "display: none;";
     document.getElementById("myCanvas").style = "display: block;";

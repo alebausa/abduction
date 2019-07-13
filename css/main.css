@@ -75,3 +75,27 @@ canvas {
 }
 
 /******* DEAD PANEL ********/
+
+#dead-panel {
+  margin-top: -470px;
+  margin-left: 280px;
+  border: 2px dotted white;
+  font-size: 2em;
+  width: 330px;
+  border-radius: 10px;
+  padding-left: 25px;
+  background-color: black;
+}
+
+#dead-panel p {
+  text-align: center;
+}
+
+#alive-btn {
+  background-color: black;
+  font-size: 0.7em;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+}

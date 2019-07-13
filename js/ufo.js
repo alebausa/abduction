@@ -6,11 +6,11 @@ class Ufo {
     this.y = y;
     this.color = color;
     this.ray = new Ray(this.x + 33, 80, 18, 430, "#FFFACD");
-    this.status = "visible"; //"hidden"
+    this.hidden = false;
   }
 
   _draw(ctx) {
-    if (game.ufo.status === "visible") {
+    if (!this.hidden) {
       ctx.drawImage(
         myUfo.sprite,
         myUfo.x,
@@ -55,12 +55,6 @@ class Ufo {
   }
 
   hide() {
-    console.log("hidden!");
-    console.log(game.ufo.status);
-    if (game.ufo.status === "hidden") {
-      this.width = 0;
-      this.height = 0;
-      this.ray.width = 0;
-    }
+    this.hidden = !this.hidden;
   }
 }
