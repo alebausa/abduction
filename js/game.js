@@ -92,7 +92,7 @@ class Game {
     }
 
     if (this.keys[72]) {
-      this.ufo.hide();
+      this.ufo.hide(this.ctx);
     }
   }
 
@@ -126,7 +126,6 @@ class Game {
 
   pause() {
     this.status = "paused";
-    document.getElementsByTagName("canvas").style = "filter: blur(6px);";
     document.getElementById("pause-panel").style = "display: block;";
     document.getElementById("pause-panel").style = "position: absolute;";
   }
@@ -134,7 +133,6 @@ class Game {
   resume() {
     this.status = "running";
     document.getElementById("pause-panel").style = "display: none;";
-    document.getElementsByTagName("canvas").style = "filter: blur(0px);";
     this._checkStatus();
   }
 

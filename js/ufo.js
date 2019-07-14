@@ -10,19 +10,17 @@ class Ufo {
   }
 
   _draw(ctx) {
-    if (!this.hidden) {
-      ctx.drawImage(
-        myUfo.sprite,
-        myUfo.x,
-        0,
-        54,
-        42,
-        this.x,
-        this.y,
-        this.width,
-        this.height
-      );
-    }
+    ctx.drawImage(
+      myUfo.sprite,
+      myUfo.x,
+      0,
+      54,
+      42,
+      this.x,
+      this.y,
+      this.width,
+      this.height
+    );
   }
 
   // _animate() {
@@ -54,7 +52,12 @@ class Ufo {
     }
   }
 
-  hide() {
+  hide(ctx) {
     this.hidden = !this.hidden;
+    console.log("hidden!");
+    if (this.hidden) {
+      this.width = 20;
+      this.height = 15;
+    }
   }
 }
