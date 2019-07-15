@@ -9,6 +9,8 @@ class Game {
     this.floor = new Floor(0, 550, 900, 100, "grey");
     this.ufo = new Ufo(30, 30, 80, 65, "red");
     this.car = new Car(-100, 550, 100, 50, "blue");
+    this.enemiesRight = enemiesRight;
+    this.enemiesLeft = enemiesLeft;
     this.status = undefined;
     this.intervalPersonGenerator = undefined;
     this.victimCounter = 0;
@@ -31,6 +33,25 @@ class Game {
     this.windows[randomWindow]._addPerson();
   }
 
+  _paintEnemies() {
+    for (let i = 0; i < this.enemiesRight.length; i++) {
+      this.enemiesRight[i]._draw(this.ctx);
+    }
+    for (let i = 0; i < this.enemiesLeft.length; i++) {
+      this.enemiesLeft[i]._draw(this.ctx);
+    }
+    setInterval(() => {
+      this.enemiesRight.forEach(enemie => {
+        enemie._appearFromRight();
+      });
+    }, 1000);
+    setInterval(() => {
+      this.enemiesLeft.forEach(enemie => {
+        enemie._appearFromLeft();
+      });
+    }, 3000);
+  }
+
   _checkCollision() {
     for (let i = 0; i < this.windows.length; i++) {
       if (
@@ -47,14 +68,14 @@ class Game {
     document.getElementById("victims").innerHTML = this.victimCounter;
   }
 
-  _checkCar() {
-    if (this.car.x === 400 && !this.ufo.hidden) {
-      console.log("DEAD!");
-      document.getElementById("dead-panel").style = "display: block;";
-      document.getElementById("dead-panel").style = "position: absolute;";
-      this.status = "paused";
-    }
-  }
+  // _checkCar() {
+  //   if (this.car.x === 400 && !this.ufo.hidden) {
+  //     console.log("DEAD!");
+  //     document.getElementById("dead-panel").style = "display: block;";
+  //     document.getElementById("dead-panel").style = "position: absolute;";
+  //     this.status = "paused";
+  //   }
+  // }
 
   _assignControls() {
     window.addEventListener(
@@ -101,14 +122,15 @@ class Game {
     this._assignControls();
     this._paintBuildings();
     this._paintWindows();
+    this._paintEnemies(this.ctx);
     this.floor._drawFloor(this.ctx);
     this.ufo._draw(this.ctx);
     this._checkCollision();
-    this.car._draw(this.ctx);
-    setInterval(() => {
-      this.car._drive();
-    }, 7000);
-    this._checkCar();
+    // this.car._draw(this.ctx);
+    // setInterval(() => {
+    //   this.car._drive();
+    // }, 7000);
+    // this._checkCar();
     this.intervalGame = window.requestAnimationFrame(
       this._checkStatus.bind(this)
     );

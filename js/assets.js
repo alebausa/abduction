@@ -64,6 +64,16 @@ const buildings = [
   new Building(620, 190, 100, 360, "blue")
 ];
 
+const enemiesRight = [
+  new Enemie(920, 540, 10, 10, "brown"),
+  new Enemie(900, 540, 10, 10, "brown")
+];
+
+const enemiesLeft = [
+  new Enemie(-20, 540, 10, 10, "brown"),
+  new Enemie(-50, 540, 10, 10, "brown")
+];
+
 const myUfo = {
   sprite: new Image(),
   width: 62,

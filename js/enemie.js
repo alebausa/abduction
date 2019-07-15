@@ -12,7 +12,15 @@ class Enemie {
     ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 
-  _appearFromRight() {}
+  _appearFromRight() {
+    setInterval(() => {
+      this.x = this.x - 0.5;
+    }, 950);
+  }
 
-  _appearFromLeft() {}
+  _appearFromLeft() {
+    setInterval(() => {
+      this.x = this.x + 0.5;
+    }, 950);
+  }
 }
