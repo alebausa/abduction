@@ -10,11 +10,14 @@ document.onload = (function() {
   var continueBtn = document.getElementById("continue-btn");
   continueBtn.addEventListener("click", resumeGame);
 
-  var aliveBtn = document.getElementById("alive-btn");
-  aliveBtn.addEventListener("click", startGame);
+  var aliveBtns = Array.from(document.getElementsByClassName("alive-btn"));
+  aliveBtns.forEach(function(button) {
+    button.addEventListener("click", startGame);
+  });
 
   function startGame() {
     document.getElementById("start-panel").style = "display: none;";
+    document.getElementById("enemie-panel").style = "display: none;";
     document.getElementById("myCanvas").style = "display: block;";
     document.getElementById("counter").style = "display: block;";
     game = new Game(ctx);
