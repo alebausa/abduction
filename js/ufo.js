@@ -14,8 +14,8 @@ class Ufo {
       myUfo.sprite,
       myUfo.x,
       0,
-      54,
-      42,
+      60,
+      35,
       this.x,
       this.y,
       this.width,
@@ -23,16 +23,16 @@ class Ufo {
     );
   }
 
-  // _animate() {
-  //   setInterval(function() {
-  //     myUfo.x += myUfo.width;
-  //     myUfo.actualStep++;
-  //     if (myUfo.actualStep === myUfo.totalSteps) {
-  //       myUfo.actualStep = 1;
-  //       myUfo.x = 0;
-  //     }
-  //   }, 500);
-  // }
+  _animate() {
+    setInterval(function() {
+      myUfo.x += myUfo.width;
+      myUfo.actualStep++;
+      if (myUfo.actualStep === myUfo.totalSteps) {
+        myUfo.actualStep = 1;
+        myUfo.x = 0;
+      }
+    }, 500);
+  }
 
   moveRight() {
     this.x += 5;

@@ -7,7 +7,7 @@ class Game {
     this.windows = windows;
     this.buildings = buildings;
     this.floor = new Floor(0, 550, 900, 100, "grey");
-    this.ufo = new Ufo(30, 30, 80, 65, "red");
+    this.ufo = new Ufo(30, 30, 83, 65, "red");
     this.car = new Car(-100, 550, 100, 50, "blue");
     this.enemiesRight = enemiesRight;
     this.enemiesLeft = enemiesLeft;
@@ -77,6 +77,20 @@ class Game {
   //   }
   // }
 
+  _checkEnemiesCollision() {
+    for (let i = 0; i < this.enemiesRight.length; i++) {
+      if (
+        this.keys[32] &&
+        this.ufo.ray.x >= enemiesRight[i].x &&
+        this.ufo.ray.x <= enemiesRight[i].x + enemiesRight[i].width
+      ) {
+        enemiesRight[i].width = 0;
+        this.victimCounter--;
+      }
+    }
+    document.getElementById("victims").innerHTML = this.victimCounter;
+  }
+
   _assignControls() {
     window.addEventListener(
       "keydown",
@@ -126,6 +140,7 @@ class Game {
     this.floor._drawFloor(this.ctx);
     this.ufo._draw(this.ctx);
     this._checkCollision();
+    this._checkEnemiesCollision();
     // this.car._draw(this.ctx);
     // setInterval(() => {
     //   this.car._drive();
@@ -161,8 +176,10 @@ class Game {
   start() {
     this.status = "running";
     document.getElementById("dead-panel").style = "display: none;";
-    // this.ufo._animate();
-    // this.car._animate();
+    this.ufo._animate();
+    for (let i = 0; i < this.enemiesRight.length; i++) {
+      enemiesRight[i]._animate();
+    }
     this.intervalPersonGenerator = setInterval(() => {
       this._generatePerson();
     }, 3000);

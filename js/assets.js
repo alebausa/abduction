@@ -65,8 +65,8 @@ const buildings = [
 ];
 
 const enemiesRight = [
-  new Enemie(920, 540, 10, 10, "brown"),
-  new Enemie(900, 540, 10, 10, "brown")
+  new Enemie(920, 530, 20, 20, "brown"),
+  new Enemie(900, 530, 20, 20, "brown")
 ];
 
 const enemiesLeft = [
@@ -76,8 +76,8 @@ const enemiesLeft = [
 
 const myUfo = {
   sprite: new Image(),
-  width: 62,
-  x: 4,
+  width: 56,
+  x: 5,
   actualStep: 1,
   totalSteps: 6
 };
@@ -126,3 +126,12 @@ const policeCar = {
   totalSteps: 7
 };
 policeCar.sprite.src = "./img/policecar.png";
+
+const dogRight = {
+  sprite: new Image(),
+  width: 40,
+  x: 5,
+  actualStep: 1,
+  totalSteps: 4
+};
+dogRight.sprite.src = "./img/dog2.png";
