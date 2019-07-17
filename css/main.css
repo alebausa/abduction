@@ -104,11 +104,22 @@ canvas {
 
 #enemie-panel {
   margin-top: -470px;
-  margin-left: 175px;
-  border: 2px dotted white;
+  margin-left: 165px;
+  border: 2px solid white;
   font-size: 1.2em;
-  /* width: 330px; */
+  width: 600px;
   border-radius: 10px;
   padding-left: 25px;
   background-color: black;
+}
+
+.bigger-font {
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.game-over {
+  text-align: center;
+  font-size: 1.5em;
+  margin-left: 155px;
 }
