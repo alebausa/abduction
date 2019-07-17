@@ -84,11 +84,13 @@ class Game {
         this.ufo.ray.x >= enemiesRight[i].x &&
         this.ufo.ray.x <= enemiesRight[i].x + enemiesRight[i].width
       ) {
-        enemiesRight[i].width = 0;
-        this.victimCounter--;
+        this.status = "paused";
+        document.getElementById("enemie-panel").style = "display: block;";
+        document.getElementById("enemie-panel").style = "position: absolute;";
+        // enemiesRight[i].width = 0;
+        // this.victimCounter--;
       }
     }
-    document.getElementById("victims").innerHTML = this.victimCounter;
   }
 
   _assignControls() {

@@ -102,12 +102,12 @@ canvas {
 
 /******** ENEMIES PANEL *******/
 
-#enemies-panel {
+#enemie-panel {
   margin-top: -470px;
-  margin-left: 280px;
+  margin-left: 175px;
   border: 2px dotted white;
-  font-size: 2em;
-  width: 330px;
+  font-size: 1.2em;
+  /* width: 330px; */
   border-radius: 10px;
   padding-left: 25px;
   background-color: black;
