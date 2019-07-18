@@ -123,3 +123,12 @@ canvas {
   font-size: 1.5em;
   margin-left: 155px;
 }
+
+/******** HIDE BTN ******/
+
+#hide-btn {
+  margin-top: -10px;
+  margin-left: 100px;
+  border: 1px solid black;
+  color: white;
+}

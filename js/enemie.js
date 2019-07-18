@@ -5,6 +5,9 @@ class Enemie {
     this.x = x;
     this.y = y;
     this.color = color;
+    // this._appearFromRight();
+    // this._appearFromLeft();
+    // this._animate();
   }
 
   _draw(ctx) {
@@ -12,7 +15,7 @@ class Enemie {
     // ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.drawImage(
       dogRight.sprite,
-      5,
+      dogRight.x,
       0,
       39.5,
       36,

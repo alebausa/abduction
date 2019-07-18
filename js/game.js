@@ -76,14 +76,14 @@ class Game {
     document.getElementById("level").innerHTML = this.level;
   }
 
-  // _checkCar() {
-  //   if (this.car.x === 400 && !this.ufo.hidden) {
-  //     console.log("DEAD!");
-  //     document.getElementById("dead-panel").style = "display: block;";
-  //     document.getElementById("dead-panel").style = "position: absolute;";
-  //     this.status = "paused";
-  //   }
-  // }
+  _checkCar() {
+    if (this.car.x === 400 && !this.ufo.hidden) {
+      console.log("DEAD!");
+      document.getElementById("dead-panel").style = "display: block;";
+      document.getElementById("dead-panel").style = "position: absolute;";
+      this.status = "paused";
+    }
+  }
 
   _checkEnemiesCollision() {
     for (let i = 0; i < this.enemiesRight.length; i++) {
@@ -92,16 +92,25 @@ class Game {
         this.ufo.ray.x >= enemiesRight[i].x &&
         this.ufo.ray.x <= enemiesRight[i].x + enemiesRight[i].width
       ) {
-        this.status = "paused";
-        document.getElementById("enemie-panel").style = "display: block;";
-        document.getElementById("enemie-panel").style = "position: absolute;";
-        // enemiesRight[i].width = 0;
-        // this.victimCounter--;
+        enemiesRight[i].width = 0;
+        this.victimCounter--;
+        if (this.victimCounter < 0) {
+          this.status = "paused";
+          document.getElementById("enemie-panel").style = "display: block;";
+          document.getElementById("enemie-panel").style = "position: absolute;";
+        }
       }
     }
   }
 
   _assignControls() {
+    document.onkeydown = e => {
+      if (e.keyCode === 72) {
+        this.ufo.hide(this.ctx);
+        console.log(this.ufo.hidden);
+      }
+    };
+
     window.addEventListener(
       "keydown",
       function(event) {
@@ -135,29 +144,25 @@ class Game {
     if (this.keys[13]) {
       this.resume();
     }
-
-    if (this.keys[72]) {
-      this.ufo.hide(this.ctx);
-    }
-
-    // var hideBtn = document.getElementById("hide-btn");
-    // hideBtn.addEventListener("click", this.ufo.hide(this.ctx));
   }
 
   _update() {
     this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+    // Basic
     this._assignControls();
     this._paintBuildings();
     this._paintWindows();
     this.floor._drawFloor(this.ctx);
+    // Ufo
     this.ufo._draw(this.ctx);
     this._checkCollision();
+    // Animals
+    this._paintEnemies(this.ctx);
     this._checkEnemiesCollision();
-    // this.car._draw(this.ctx);
-    // setInterval(() => {
-    //   this.car._drive();
-    // }, 7000);
-    // this._checkCar();
+    // Car
+    this.car._draw(this.ctx);
+    this._checkCar();
+    // Check status
     this.intervalGame = window.requestAnimationFrame(
       this._checkStatus.bind(this)
     );
@@ -189,13 +194,14 @@ class Game {
     this.status = "running";
     document.getElementById("dead-panel").style = "display: none;";
     this.ufo._animate();
-    this._paintEnemies(this.ctx);
-    // for (let i = 0; i < this.windows.length; i++) {
-    //   windows[i]._animate();
-    // }
     // for (let i = 0; i < this.enemiesRight.length; i++) {
     //   enemiesRight[i]._animate();
     // }
+
+    // this.enemiesRight.forEach(enemy => {
+    //   enemy._animate();
+    // });
+
     this.intervalPersonGenerator = setInterval(() => {
       this._generatePerson();
     }, 3000);

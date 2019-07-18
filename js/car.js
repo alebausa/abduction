@@ -5,14 +5,15 @@ class Car {
     this.x = x;
     this.y = y;
     this.color = color;
+    this._animate();
+    this._drive();
   }
+
   _draw(ctx) {
-    // ctx.fillStyle = this.color;
-    // ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.drawImage(
       policeCar.sprite,
-      5,
-      0,
+      policeCar.x,
+      policeCar.y,
       145,
       69,
       this.x,
@@ -22,20 +23,23 @@ class Car {
     );
   }
 
-  // _animate() {
-  //   setInterval(function() {
-  //     policeCar.x += policeCar.width;
-  //     policeCar.actualStep++;
-  //     if (policeCar.actualStep === policeCar.totalSteps) {
-  //       policeCar.actualStep = 1;
-  //       policeCar.x = 0;
-  //     }
-  //   }, 500);
-  // }
+  _animate() {
+    setInterval(function() {
+      policeCar.x += policeCar.width;
+      policeCar.actualStep++;
+      if (policeCar.actualStep === policeCar.totalSteps) {
+        policeCar.actualStep = 1;
+        policeCar.x = 5;
+      }
+    }, 200);
+  }
 
   _drive() {
-    setInterval(() => {
-      this.x = this.x + 1;
-    }, 600);
+    setTimeout(() => {
+      setInterval(() => {
+        this.x = this.x + 15;
+        console.log("ep");
+      }, 100);
+    }, 3000);
   }
 }

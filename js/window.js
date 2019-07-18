@@ -63,7 +63,7 @@ class Window {
       characters.actualStep++;
       if (characters.actualStep === characters.totalSteps) {
         characters.actualStep = 1;
-        characters.x = 0;
+        characters.x = 156;
       }
     }, 500);
   }

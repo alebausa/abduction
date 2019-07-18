@@ -5,7 +5,7 @@ class Ufo {
     this.x = x;
     this.y = y;
     this.color = color;
-    this.ray = new Ray(this.x + 30, 93, 18, 430, "#FFFACD");
+    this.ray = new Ray(this.x + 32, 93, 18, 430, "#FFFACD");
     this.hidden = false;
   }
 
@@ -29,7 +29,7 @@ class Ufo {
       myUfo.actualStep++;
       if (myUfo.actualStep === myUfo.totalSteps) {
         myUfo.actualStep = 1;
-        myUfo.x = 5;
+        myUfo.x = 2.5;
       }
     }, 100);
   }
@@ -54,10 +54,13 @@ class Ufo {
 
   hide(ctx) {
     this.hidden = !this.hidden;
-    console.log("hidden!");
-    if (this.hidden) {
-      this.width = 20;
-      this.height = 15;
+    if (this.hidden === true) {
+      this.width = 0;
+      console.log("hidden!");
+    }
+    if (this.hidden === false) {
+      this.width = 83;
+      console.log("showing!");
     }
   }
 }
