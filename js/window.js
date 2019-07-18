@@ -56,4 +56,15 @@ class Window {
       this.hasPerson = false;
     }, 4000);
   }
+
+  _animate() {
+    setInterval(function() {
+      characters.x += characters.width;
+      characters.actualStep++;
+      if (characters.actualStep === characters.totalSteps) {
+        characters.actualStep = 1;
+        characters.x = 0;
+      }
+    }, 500);
+  }
 }

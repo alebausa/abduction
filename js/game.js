@@ -14,6 +14,7 @@ class Game {
     this.status = undefined;
     this.intervalPersonGenerator = undefined;
     this.victimCounter = 0;
+    this.level = 1;
   }
 
   _paintBuildings() {
@@ -66,6 +67,13 @@ class Game {
       }
     }
     document.getElementById("victims").innerHTML = this.victimCounter;
+    if (this.victimCounter === 5) {
+      this.level = 2;
+    }
+    if (this.victimCounter === 10) {
+      this.level = 3;
+    }
+    document.getElementById("level").innerHTML = this.level;
   }
 
   // _checkCar() {
@@ -131,6 +139,9 @@ class Game {
     if (this.keys[72]) {
       this.ufo.hide(this.ctx);
     }
+
+    // var hideBtn = document.getElementById("hide-btn");
+    // hideBtn.addEventListener("click", this.ufo.hide(this.ctx));
   }
 
   _update() {
@@ -138,7 +149,6 @@ class Game {
     this._assignControls();
     this._paintBuildings();
     this._paintWindows();
-    this._paintEnemies(this.ctx);
     this.floor._drawFloor(this.ctx);
     this.ufo._draw(this.ctx);
     this._checkCollision();
@@ -179,9 +189,13 @@ class Game {
     this.status = "running";
     document.getElementById("dead-panel").style = "display: none;";
     this.ufo._animate();
-    for (let i = 0; i < this.enemiesRight.length; i++) {
-      enemiesRight[i]._animate();
-    }
+    this._paintEnemies(this.ctx);
+    // for (let i = 0; i < this.windows.length; i++) {
+    //   windows[i]._animate();
+    // }
+    // for (let i = 0; i < this.enemiesRight.length; i++) {
+    //   enemiesRight[i]._animate();
+    // }
     this.intervalPersonGenerator = setInterval(() => {
       this._generatePerson();
     }, 3000);

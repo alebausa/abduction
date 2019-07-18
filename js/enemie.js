@@ -25,8 +25,8 @@ class Enemie {
 
   _appearFromRight() {
     setInterval(() => {
-      this.x = this.x - 0.5;
-    }, 950);
+      this.x = this.x - 0.03;
+    }, 1000);
   }
 
   _appearFromLeft() {
@@ -36,7 +36,7 @@ class Enemie {
   }
 
   _animate() {
-    setInterval(function() {
+    setInterval(() => {
       dogRight.x += dogRight.width;
       dogRight.actualStep++;
       if (dogRight.actualStep === dogRight.totalSteps) {

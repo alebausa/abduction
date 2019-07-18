@@ -5,7 +5,7 @@ class Ufo {
     this.x = x;
     this.y = y;
     this.color = color;
-    this.ray = new Ray(this.x + 33, 80, 18, 430, "#FFFACD");
+    this.ray = new Ray(this.x + 30, 93, 18, 430, "#FFFACD");
     this.hidden = false;
   }
 
@@ -29,9 +29,9 @@ class Ufo {
       myUfo.actualStep++;
       if (myUfo.actualStep === myUfo.totalSteps) {
         myUfo.actualStep = 1;
-        myUfo.x = 0;
+        myUfo.x = 5;
       }
-    }, 500);
+    }, 100);
   }
 
   moveRight() {

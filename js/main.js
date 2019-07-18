@@ -22,7 +22,6 @@ document.onload = (function() {
     document.getElementById("counter").style = "display: block;";
     game = new Game(ctx);
     game.start();
-    //pause pinta div de PAUSE
   }
 
   function resumeGame() {

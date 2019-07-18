@@ -65,8 +65,19 @@ const buildings = [
 ];
 
 const enemiesRight = [
-  new Enemie(920, 530, 20, 20, "brown"),
-  new Enemie(900, 530, 20, 20, "brown")
+  new Enemie(950, 530, 20, 20, "brown"),
+  new Enemie(900, 530, 20, 20, "brown"),
+  new Enemie(980, 530, 20, 20, "brown"),
+  new Enemie(1200, 530, 20, 20, "brown"),
+  new Enemie(3300, 530, 20, 20, "brown"),
+  new Enemie(4600, 530, 20, 20, "brown"),
+  new Enemie(6000, 530, 20, 20, "brown"),
+  new Enemie(9100, 530, 20, 20, "brown"),
+  new Enemie(10100, 530, 20, 20, "brown"),
+  new Enemie(9100, 530, 20, 20, "brown"),
+  new Enemie(11100, 530, 20, 20, "brown"),
+  new Enemie(13100, 530, 20, 20, "brown"),
+  new Enemie(17100, 530, 20, 20, "brown")
 ];
 
 const enemiesLeft = [
@@ -114,7 +125,9 @@ windowOn.sprite.src = "./img/windowframe_on.png";
 const characters = {
   sprite: new Image(),
   width: 64,
-  x: 156
+  x: 156,
+  actualStep: 1,
+  totalSteps: 7
 };
 characters.sprite.src = "./img/people.png";
 
