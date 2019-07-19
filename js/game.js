@@ -14,7 +14,9 @@ class Game {
     this.intervalPersonGenerator = undefined;
     this.victimCounter = 0;
     this.level = 1;
+    this.bgSound = new sound("./sounds/song.wav");
     this.ghostSound = new sound("./sounds/ghost.mp3");
+    this.loseSound = new sound("./sounds/lose.wav");
   }
 
   _paintBuildings() {
@@ -69,6 +71,8 @@ class Game {
       document.getElementById("dead-panel").style = "display: block;";
       document.getElementById("dead-panel").style = "position: absolute;";
       this.status = "paused";
+      this.car.noise.stop();
+      this.loseSound.play();
     }
   }
 
@@ -85,6 +89,8 @@ class Game {
           this.status = "paused";
           document.getElementById("enemie-panel").style = "display: block;";
           document.getElementById("enemie-panel").style = "position: absolute;";
+          this.loseSound.play();
+          this.bgSound.stop();
         }
         this.ghostSound.play();
       }
@@ -164,6 +170,9 @@ class Game {
         this._update();
         break;
       case "paused":
+        this.bgSound.stop();
+        this.car.noise.stop();
+        window.clearInterval();
         break;
     }
   }
@@ -172,6 +181,7 @@ class Game {
     this.status = "paused";
     document.getElementById("pause-panel").style = "display: block;";
     document.getElementById("pause-panel").style = "position: absolute;";
+    this.bgSound.stop();
   }
 
   resume() {
@@ -182,6 +192,7 @@ class Game {
 
   start() {
     this.status = "running";
+    this.bgSound.play();
     document.getElementById("dead-panel").style = "display: none;";
     this.ufo._animate();
     this.checkCarCollision();

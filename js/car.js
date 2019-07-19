@@ -8,6 +8,7 @@ class Car {
     this.seen = false;
     this._animate();
     this._drive();
+    this.noise = new sound("./sounds/fbi.mp3");
   }
 
   _draw(ctx) {
@@ -22,6 +23,9 @@ class Car {
       this.width,
       this.height
     );
+    if (this.x > 50) {
+      this.noise.play();
+    }
   }
 
   _animate() {
@@ -48,6 +52,6 @@ class Car {
           this.x = -2000;
         }
       }, 50);
-    }, 15000);
+    }, 4000);
   }
 }
