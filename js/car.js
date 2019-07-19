@@ -5,6 +5,7 @@ class Car {
     this.x = x;
     this.y = y;
     this.color = color;
+    this.seen = false;
     this._animate();
     this._drive();
   }
@@ -38,7 +39,14 @@ class Car {
     setTimeout(() => {
       setInterval(() => {
         this.x = this.x + 15;
-        console.log("ep");
+        if (this.x > 300 && this.x < 850) {
+          this.seen = true;
+        } else {
+          this.seen = false;
+        }
+        if (this.x > 900) {
+          this.x = -1000;
+        }
       }, 100);
     }, 3000);
   }
