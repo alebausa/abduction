@@ -7,6 +7,8 @@ class Ufo {
     this.color = color;
     this.ray = new Ray(this.x + 32, 93, 18, 430, "#FFFACD");
     this.hidden = false;
+    this.hiddenSound = new sound("./sounds/hidesound.mp3");
+    this.appearSound = new sound("./sounds/appearsound.mp3");
   }
 
   _draw(ctx) {
@@ -57,10 +59,12 @@ class Ufo {
     if (this.hidden === true) {
       this.width = 0;
       this.ray.width = 0;
+      this.hiddenSound.play();
     }
     if (this.hidden === false) {
       this.width = 83;
       this.ray.width = 18;
+      this.appearSound.play();
     }
   }
 }

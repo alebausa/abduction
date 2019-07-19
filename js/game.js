@@ -56,10 +56,10 @@ class Game {
       }
     }
     document.getElementById("victims").innerHTML = this.victimCounter;
-    if (this.victimCounter === 5) {
+    if (this.victimCounter === 10) {
       this.level = 2;
     }
-    if (this.victimCounter === 10) {
+    if (this.victimCounter === 20) {
       this.level = 3;
     }
     document.getElementById("level").innerHTML = this.level;
@@ -186,6 +186,7 @@ class Game {
 
   resume() {
     this.status = "running";
+    this.bgSound.play();
     document.getElementById("pause-panel").style = "display: none;";
     this._checkStatus();
   }

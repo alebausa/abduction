@@ -8,8 +8,6 @@ class Floor {
   }
 
   _drawFloor(ctx) {
-    // ctx.fillStyle = this.color;
-    // ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.drawImage(myFloor.sprite, 15, 95, 384, 64, 0, 550, 900, 100);
   }
 }
