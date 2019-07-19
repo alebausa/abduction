@@ -1,5 +1,5 @@
 class Window {
-  constructor(x, y, width, height, color) {
+  constructor(x, y, width, height, color, characters) {
     this.width = width;
     this.height = height;
     this.x = x;
@@ -9,8 +9,6 @@ class Window {
   }
 
   _drawWindow(ctx) {
-    // ctx.fillStyle = this.color;
-    // ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.drawImage(
       windowOff.sprite,
       76,
@@ -23,8 +21,6 @@ class Window {
       this.height
     );
     if (this.hasPerson) {
-      // ctx.fillStyle = "grey";
-      // ctx.fillRect(this.x + 5, this.y + 10, this.width / 2, this.height / 2);
       ctx.drawImage(
         windowOn.sprite,
         76,
@@ -37,15 +33,15 @@ class Window {
         this.height
       );
       ctx.drawImage(
-        characters.sprite,
-        405,
-        3,
+        character.sprite,
+        character.x,
+        character.y,
         64,
         78,
         this.x + 2,
         this.y + 2,
-        this.width - 5,
-        this.height - 5
+        this.width - 3,
+        this.height - 3
       );
     }
   }
@@ -55,16 +51,5 @@ class Window {
     setTimeout(() => {
       this.hasPerson = false;
     }, 4000);
-  }
-
-  _animate() {
-    setInterval(function() {
-      characters.x += characters.width;
-      characters.actualStep++;
-      if (characters.actualStep === characters.totalSteps) {
-        characters.actualStep = 1;
-        characters.x = 156;
-      }
-    }, 500);
   }
 }

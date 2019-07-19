@@ -1,50 +1,60 @@
 class Enemie {
-  constructor(x, y, width, height, color) {
+  constructor(x, y, width, height, color, direction) {
     this.width = width;
     this.height = height;
     this.x = x;
     this.y = y;
     this.color = color;
-    // this._appearFromRight();
-    // this._appearFromLeft();
+    this.direction = direction;
+    this._appear();
     // this._animate();
   }
 
   _draw(ctx) {
-    // ctx.fillStyle = this.color;
-    // ctx.fillRect(this.x, this.y, this.width, this.height);
-    ctx.drawImage(
-      dogRight.sprite,
-      dogRight.x,
-      0,
-      39.5,
-      36,
-      this.x,
-      this.y,
-      this.width,
-      this.height
-    );
+    if (this.direction === "left") {
+      ctx.drawImage(
+        ghostRight.sprite,
+        ghostRight.x,
+        ghostRight.y,
+        ghostRight.width,
+        ghostRight.height,
+        this.x,
+        this.y,
+        this.width,
+        this.height
+      );
+    } else if (this.direction === "right") {
+      ctx.drawImage(
+        ghostLeft.sprite,
+        ghostLeft.x,
+        ghostLeft.y,
+        ghostLeft.width,
+        ghostLeft.height,
+        this.x,
+        this.y,
+        this.width,
+        this.height
+      );
+    }
   }
 
-  _appearFromRight() {
+  _appear() {
     setInterval(() => {
-      this.x = this.x - 0.03;
-    }, 1000);
-  }
-
-  _appearFromLeft() {
-    setInterval(() => {
-      this.x = this.x + 0.5;
-    }, 950);
+      if (this.direction === "left") {
+        this.x = this.x - 5;
+      } else if (this.direction === "right") {
+        this.x = this.x + 5;
+      }
+    }, 100);
   }
 
   _animate() {
     setInterval(() => {
-      dogRight.x += dogRight.width;
-      dogRight.actualStep++;
-      if (dogRight.actualStep === dogRight.totalSteps) {
-        dogRight.actualStep = 1;
-        dogRight.x = 5;
+      ghost.x += ghost.width;
+      ghost.actualStep++;
+      if (ghost.actualStep === ghost.totalSteps) {
+        ghost.actualStep = 1;
+        ghost.x = 3;
       }
     }, 500);
   }

@@ -9,8 +9,9 @@ class Game {
     this.floor = new Floor(0, 550, 900, 100, "grey");
     this.ufo = new Ufo(30, 30, 83, 65, "red");
     this.car = new Car(-100, 550, 100, 50, "blue");
-    this.enemiesRight = enemiesRight;
-    this.enemiesLeft = enemiesLeft;
+    this.enemies = [];
+    // this.enemiesRight = enemiesRight;
+    // this.enemiesLeft = enemiesLeft;
     this.status = undefined;
     this.intervalPersonGenerator = undefined;
     this.victimCounter = 0;
@@ -34,24 +35,36 @@ class Game {
     this.windows[randomWindow]._addPerson();
   }
 
-  _paintEnemies() {
-    for (let i = 0; i < this.enemiesRight.length; i++) {
-      this.enemiesRight[i]._draw(this.ctx);
-    }
-    for (let i = 0; i < this.enemiesLeft.length; i++) {
-      this.enemiesLeft[i]._draw(this.ctx);
-    }
-    setInterval(() => {
-      this.enemiesRight.forEach(enemie => {
-        enemie._appearFromRight();
-      });
-    }, 1000);
-    setInterval(() => {
-      this.enemiesLeft.forEach(enemie => {
-        enemie._appearFromLeft();
-      });
-    }, 3000);
+  _generateEnemies() {
+    let newEnemy = new Enemie(950, 520, 25, 50, "brown", "left");
+    let leftEnemy = new Enemie(-20, 520, 25, 50, "brown", "right");
+    this.enemies.push(newEnemy, leftEnemy);
   }
+
+  // _paintEnemies() {
+  //   this.enemies.forEach(enemie => {
+  //     enemie._draw(this.ctx);
+  //   });
+  // }
+
+  // _paintEnemies() {
+  //   for (let i = 0; i < this.enemiesRight.length; i++) {
+  //     this.enemiesRight[i]._draw(this.ctx);
+  //   }
+  //   for (let i = 0; i < this.enemiesLeft.length; i++) {
+  //     this.enemiesLeft[i]._draw(this.ctx);
+  //   }
+  //   setInterval(() => {
+  //     this.enemiesRight.forEach(enemie => {
+  //       enemie._appearFromRight();
+  //     });
+  //   }, 1000);
+  //   setInterval(() => {
+  //     this.enemiesLeft.forEach(enemie => {
+  //       enemie._appearFromLeft();
+  //     });
+  //   }, 3000);
+  // }
 
   _checkCollision() {
     for (let i = 0; i < this.windows.length; i++) {
@@ -77,7 +90,7 @@ class Game {
   }
 
   _checkCar() {
-    if (this.car.x === 400 && !this.ufo.hidden) {
+    if (this.car.x === 400 && this.ufo.hidden === false) {
       console.log("DEAD!");
       document.getElementById("dead-panel").style = "display: block;";
       document.getElementById("dead-panel").style = "position: absolute;";
@@ -85,23 +98,23 @@ class Game {
     }
   }
 
-  _checkEnemiesCollision() {
-    for (let i = 0; i < this.enemiesRight.length; i++) {
-      if (
-        this.keys[32] &&
-        this.ufo.ray.x >= enemiesRight[i].x &&
-        this.ufo.ray.x <= enemiesRight[i].x + enemiesRight[i].width
-      ) {
-        enemiesRight[i].width = 0;
-        this.victimCounter--;
-        if (this.victimCounter < 0) {
-          this.status = "paused";
-          document.getElementById("enemie-panel").style = "display: block;";
-          document.getElementById("enemie-panel").style = "position: absolute;";
-        }
-      }
-    }
-  }
+  // _checkEnemiesCollision() {
+  //   for (let i = 0; i < this.enemiesRight.length; i++) {
+  //     if (
+  //       this.keys[32] &&
+  //       this.ufo.ray.x >= enemiesRight[i].x &&
+  //       this.ufo.ray.x <= enemiesRight[i].x + enemiesRight[i].width
+  //     ) {
+  //       enemiesRight[i].width = 0;
+  //       this.victimCounter--;
+  //       if (this.victimCounter < 0) {
+  //         this.status = "paused";
+  //         document.getElementById("enemie-panel").style = "display: block;";
+  //         document.getElementById("enemie-panel").style = "position: absolute;";
+  //       }
+  //     }
+  //   }
+  // }
 
   _assignControls() {
     document.onkeydown = e => {
@@ -157,8 +170,12 @@ class Game {
     this.ufo._draw(this.ctx);
     this._checkCollision();
     // Animals
-    this._paintEnemies(this.ctx);
-    this._checkEnemiesCollision();
+    this.enemies.forEach(enemie => {
+      enemie._draw(this.ctx);
+    });
+    // this._generateEnemies();
+    // this._paintEnemies(this.ctx);
+    // this._checkEnemiesCollision();
     // Car
     this.car._draw(this.ctx);
     this._checkCar();
@@ -194,6 +211,10 @@ class Game {
     this.status = "running";
     document.getElementById("dead-panel").style = "display: none;";
     this.ufo._animate();
+    setInterval(() => {
+      this._generateEnemies();
+    }, 4000);
+    // this.car._drive();
     // for (let i = 0; i < this.enemiesRight.length; i++) {
     //   enemiesRight[i]._animate();
     // }

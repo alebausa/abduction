@@ -72,26 +72,26 @@ const buildings = [
 //   enemiesRight.push(i);
 // }
 
-const enemiesRight = [
-  new Enemie(950, 530, 20, 20, "brown"),
-  new Enemie(900, 530, 20, 20, "brown"),
-  new Enemie(980, 530, 20, 20, "brown"),
-  new Enemie(1200, 530, 20, 20, "brown"),
-  new Enemie(3300, 530, 20, 20, "brown"),
-  new Enemie(4600, 530, 20, 20, "brown"),
-  new Enemie(6000, 530, 20, 20, "brown"),
-  new Enemie(9100, 530, 20, 20, "brown"),
-  new Enemie(10100, 530, 20, 20, "brown"),
-  new Enemie(9100, 530, 20, 20, "brown"),
-  new Enemie(11100, 530, 20, 20, "brown"),
-  new Enemie(13100, 530, 20, 20, "brown"),
-  new Enemie(17100, 530, 20, 20, "brown")
-];
+// const enemiesRight = [
+//   new Enemie(950, 520, 25, 50, "brown"),
+//   new Enemie(900, 520, 25, 50, "brown"),
+//   new Enemie(980, 520, 25, 50, "brown"),
+//   new Enemie(3300, 520, 25, 50, "brown"),
+//   new Enemie(4600, 520, 25, 50, "brown"),
+//   new Enemie(6000, 520, 25, 50, "brown"),
+//   new Enemie(1200, 520, 25, 50, "brown"),
+//   new Enemie(9100, 520, 25, 50, "brown"),
+//   new Enemie(10100, 520, 25, 50, "brown"),
+//   new Enemie(9100, 520, 25, 50, "brown"),
+//   new Enemie(11100, 520, 25, 50, "brown"),
+//   new Enemie(13100, 520, 25, 50, "brown"),
+//   new Enemie(17100, 520, 25, 50, "brown")
+// ];
 
-const enemiesLeft = [
-  new Enemie(-20, 540, 10, 10, "brown"),
-  new Enemie(-50, 540, 10, 10, "brown")
-];
+// const enemiesLeft = [
+//   new Enemie(-20, 540, 10, 10, "brown"),
+//   new Enemie(-50, 540, 10, 10, "brown")
+// ];
 
 const myUfo = {
   sprite: new Image(),
@@ -130,15 +130,6 @@ const windowOn = {
 };
 windowOn.sprite.src = "./img/windowframe_on.png";
 
-const characters = {
-  sprite: new Image(),
-  width: 64,
-  x: 156,
-  actualStep: 1,
-  totalSteps: 7
-};
-characters.sprite.src = "./img/people.png";
-
 const policeCar = {
   sprite: new Image(),
   width: 145,
@@ -149,11 +140,32 @@ const policeCar = {
 };
 policeCar.sprite.src = "./img/policecar.png";
 
-const dogRight = {
+const ghostRight = {
   sprite: new Image(),
-  width: 40,
-  x: 5,
+  width: 33,
+  height: 57,
+  x: 3,
+  y: 28,
   actualStep: 1,
-  totalSteps: 4
+  totalSteps: 9
 };
-dogRight.sprite.src = "./img/dog2.png";
+ghostRight.sprite.src = "./img/ghosts-transp.png";
+
+const ghostLeft = {
+  sprite: new Image(),
+  width: 32,
+  height: 57,
+  x: 94,
+  y: 236,
+  actualStep: 1,
+  totalSteps: 9
+};
+ghostLeft.sprite.src = "./img/ghosts-transp.png";
+
+const character = {
+  sprite: new Image(),
+  width: 64,
+  x: 905,
+  y: 194
+};
+character.sprite.src = "./img/people.png";

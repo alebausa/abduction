@@ -15,24 +15,16 @@ document.onload = (function() {
     button.addEventListener("click", startGame);
   });
 
-  var hideBtn = document.getElementById("hide-btn");
-  hideBtn.addEventListener("click", hideGameUfo);
-
   function startGame() {
     document.getElementById("start-panel").style = "display: none;";
     document.getElementById("enemie-panel").style = "display: none;";
     document.getElementById("myCanvas").style = "display: block;";
     document.getElementById("counter").style = "display: block;";
-    // document.getElementById("hide-btn").style = "display: block;";
     game = new Game(ctx);
     game.start();
   }
 
   function resumeGame() {
     game.resume();
-  }
-
-  function hideGameUfo() {
-    game.hideUfo();
   }
 })();
