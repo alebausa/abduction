@@ -91,7 +91,7 @@ canvas {
   text-align: center;
 }
 
-.alive-btn {
+#alive-btn {
   background-color: black;
   font-size: 0.7em;
   padding: 10px 20px;
@@ -118,7 +118,7 @@ canvas {
   text-align: center;
 }
 
-.game-over {
+#game-over {
   text-align: center;
   margin-left: 168px;
   background-color: black;

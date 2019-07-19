@@ -14,6 +14,7 @@ class Game {
     this.intervalPersonGenerator = undefined;
     this.victimCounter = 0;
     this.level = 1;
+    this.ghostSound = new sound("./sounds/ghost.mp3");
   }
 
   _paintBuildings() {
@@ -85,6 +86,7 @@ class Game {
           document.getElementById("enemie-panel").style = "display: block;";
           document.getElementById("enemie-panel").style = "position: absolute;";
         }
+        this.ghostSound.play();
       }
     }
   }

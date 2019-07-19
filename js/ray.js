@@ -5,6 +5,7 @@ class Ray {
     this.width = width;
     this.height = height;
     this.color = color;
+    this.sound = new sound("./sounds/laser.mp3");
   }
 
   _draw(ctx) {
@@ -19,5 +20,6 @@ class Ray {
       this.width,
       this.height
     );
+    this.sound.play();
   }
 }

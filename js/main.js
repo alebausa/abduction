@@ -11,10 +11,11 @@ document.onload = (function() {
   var continueBtn = document.getElementById("continue-btn");
   continueBtn.addEventListener("click", resumeGame);
 
-  var aliveBtns = Array.from(document.getElementsByClassName("alive-btn"));
-  aliveBtns.forEach(function(button) {
-    button.addEventListener("click", startGame);
-  });
+  var bustedBtn = document.getElementById("alive-btn");
+  bustedBtn.addEventListener("click", startGame);
+
+  var gameOverBtn = document.getElementById("game-over");
+  gameOverBtn.addEventListener("click", startGame);
 
   function startGame() {
     document.getElementById("start-panel").style = "display: none;";
@@ -24,7 +25,11 @@ document.onload = (function() {
     game = new Game(ctx);
     game.start();
     bgMusic = new sound("./sounds/song.wav");
-    bgMusic.play();
+    if (game.status === "running") {
+      bgMusic.play();
+    } else if (game.status === "paused") {
+      bgMusic.pause();
+    }
   }
 
   function resumeGame() {
