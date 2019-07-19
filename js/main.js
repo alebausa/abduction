@@ -1,4 +1,5 @@
 var game;
+var bgMusic;
 
 document.onload = (function() {
   const canvas = document.getElementById("myCanvas");
@@ -22,6 +23,8 @@ document.onload = (function() {
     document.getElementById("counter").style = "display: block;";
     game = new Game(ctx);
     game.start();
+    bgMusic = new sound("./sounds/song.wav");
+    bgMusic.play();
   }
 
   function resumeGame() {

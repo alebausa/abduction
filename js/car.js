@@ -38,7 +38,7 @@ class Car {
   _drive() {
     setTimeout(() => {
       setInterval(() => {
-        this.x = this.x + 15;
+        this.x = this.x + 5;
         if (this.x > 300 && this.x < 850) {
           this.seen = true;
         } else {
@@ -47,7 +47,7 @@ class Car {
         if (this.x > 900) {
           this.x = -2000;
         }
-      }, 100);
+      }, 50);
     }, 4000);
   }
 }
