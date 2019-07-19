@@ -10,8 +10,6 @@ class Game {
     this.ufo = new Ufo(30, 30, 83, 65, "red");
     this.car = new Car(-100, 550, 100, 50, "blue");
     this.enemies = [];
-    // this.enemiesRight = enemiesRight;
-    // this.enemiesLeft = enemiesLeft;
     this.status = undefined;
     this.intervalPersonGenerator = undefined;
     this.victimCounter = 0;
@@ -40,31 +38,6 @@ class Game {
     let leftEnemy = new Enemie(-20, 520, 25, 50, "brown", "right");
     this.enemies.push(newEnemy, leftEnemy);
   }
-
-  // _paintEnemies() {
-  //   this.enemies.forEach(enemie => {
-  //     enemie._draw(this.ctx);
-  //   });
-  // }
-
-  // _paintEnemies() {
-  //   for (let i = 0; i < this.enemiesRight.length; i++) {
-  //     this.enemiesRight[i]._draw(this.ctx);
-  //   }
-  //   for (let i = 0; i < this.enemiesLeft.length; i++) {
-  //     this.enemiesLeft[i]._draw(this.ctx);
-  //   }
-  //   setInterval(() => {
-  //     this.enemiesRight.forEach(enemie => {
-  //       enemie._appearFromRight();
-  //     });
-  //   }, 1000);
-  //   setInterval(() => {
-  //     this.enemiesLeft.forEach(enemie => {
-  //       enemie._appearFromLeft();
-  //     });
-  //   }, 3000);
-  // }
 
   _checkCollision() {
     for (let i = 0; i < this.windows.length; i++) {
@@ -98,23 +71,23 @@ class Game {
     }
   }
 
-  // _checkEnemiesCollision() {
-  //   for (let i = 0; i < this.enemiesRight.length; i++) {
-  //     if (
-  //       this.keys[32] &&
-  //       this.ufo.ray.x >= enemiesRight[i].x &&
-  //       this.ufo.ray.x <= enemiesRight[i].x + enemiesRight[i].width
-  //     ) {
-  //       enemiesRight[i].width = 0;
-  //       this.victimCounter--;
-  //       if (this.victimCounter < 0) {
-  //         this.status = "paused";
-  //         document.getElementById("enemie-panel").style = "display: block;";
-  //         document.getElementById("enemie-panel").style = "position: absolute;";
-  //       }
-  //     }
-  //   }
-  // }
+  _checkEnemiesCollision() {
+    for (let i = 0; i < this.enemies.length; i++) {
+      if (
+        this.keys[32] &&
+        this.ufo.ray.x >= this.enemies[i].x &&
+        this.ufo.ray.x <= this.enemies[i].x + this.enemies[i].width
+      ) {
+        this.enemies[i].width = 0;
+        this.victimCounter--;
+        if (this.victimCounter < 0) {
+          this.status = "paused";
+          document.getElementById("enemie-panel").style = "display: block;";
+          document.getElementById("enemie-panel").style = "position: absolute;";
+        }
+      }
+    }
+  }
 
   _assignControls() {
     document.onkeydown = e => {
@@ -169,13 +142,11 @@ class Game {
     // Ufo
     this.ufo._draw(this.ctx);
     this._checkCollision();
-    // Animals
+    // Ghosts
     this.enemies.forEach(enemie => {
       enemie._draw(this.ctx);
     });
-    // this._generateEnemies();
-    // this._paintEnemies(this.ctx);
-    // this._checkEnemiesCollision();
+    this._checkEnemiesCollision();
     // Car
     this.car._draw(this.ctx);
     this._checkCar();
@@ -213,16 +184,8 @@ class Game {
     this.ufo._animate();
     setInterval(() => {
       this._generateEnemies();
-    }, 4000);
+    }, 7000);
     // this.car._drive();
-    // for (let i = 0; i < this.enemiesRight.length; i++) {
-    //   enemiesRight[i]._animate();
-    // }
-
-    // this.enemiesRight.forEach(enemy => {
-    //   enemy._animate();
-    // });
-
     this.intervalPersonGenerator = setInterval(() => {
       this._generatePerson();
     }, 3000);
