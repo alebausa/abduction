@@ -185,7 +185,7 @@ class Game {
     this.checkCarCollision();
     setInterval(() => {
       this._generateEnemies();
-    }, 1000);
+    }, 5000);
     this.intervalPersonGenerator = setInterval(() => {
       this._generatePerson();
     }, 3000);
