@@ -56,11 +56,9 @@ class Ufo {
     this.hidden = !this.hidden;
     if (this.hidden === true) {
       this.width = 0;
-      console.log("hidden!");
     }
     if (this.hidden === false) {
       this.width = 83;
-      console.log("showing!");
     }
   }
 }

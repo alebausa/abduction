@@ -8,8 +8,6 @@ class Building {
   }
 
   _drawBuilding(ctx) {
-    // ctx.fillStyle = this.color;
-    // ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.drawImage(
       wallOne.sprite,
       0,

@@ -96,7 +96,7 @@ canvas {
   font-size: 0.7em;
   padding: 10px 20px;
   border-radius: 10px;
-  margin-left: 30px;
+  margin-left: 55px;
   margin-bottom: 10px;
 }
 
@@ -120,6 +120,10 @@ canvas {
 
 .game-over {
   text-align: center;
+  margin-left: 168px;
+  background-color: black;
   font-size: 1.5em;
-  margin-left: 155px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }

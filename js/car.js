@@ -45,9 +45,9 @@ class Car {
           this.seen = false;
         }
         if (this.x > 900) {
-          this.x = -1000;
+          this.x = -2000;
         }
       }, 100);
-    }, 3000);
+    }, 4000);
   }
 }

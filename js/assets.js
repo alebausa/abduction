@@ -64,35 +64,6 @@ const buildings = [
   new Building(620, 190, 100, 360, "blue")
 ];
 
-// const enemiesRight = [];
-// var x = 950;
-// for (let i = 0; i < 300; i++) {
-//   x += 500;
-//   i = new Enemie(x, 530, 20, 20, "brown");
-//   enemiesRight.push(i);
-// }
-
-// const enemiesRight = [
-//   new Enemie(950, 520, 25, 50, "brown"),
-//   new Enemie(900, 520, 25, 50, "brown"),
-//   new Enemie(980, 520, 25, 50, "brown"),
-//   new Enemie(3300, 520, 25, 50, "brown"),
-//   new Enemie(4600, 520, 25, 50, "brown"),
-//   new Enemie(6000, 520, 25, 50, "brown"),
-//   new Enemie(1200, 520, 25, 50, "brown"),
-//   new Enemie(9100, 520, 25, 50, "brown"),
-//   new Enemie(10100, 520, 25, 50, "brown"),
-//   new Enemie(9100, 520, 25, 50, "brown"),
-//   new Enemie(11100, 520, 25, 50, "brown"),
-//   new Enemie(13100, 520, 25, 50, "brown"),
-//   new Enemie(17100, 520, 25, 50, "brown")
-// ];
-
-// const enemiesLeft = [
-//   new Enemie(-20, 540, 10, 10, "brown"),
-//   new Enemie(-50, 540, 10, 10, "brown")
-// ];
-
 const myUfo = {
   sprite: new Image(),
   width: 56,
@@ -142,7 +113,7 @@ policeCar.sprite.src = "./img/policecar.png";
 
 const ghostRight = {
   sprite: new Image(),
-  width: 33,
+  width: 32,
   height: 57,
   x: 3,
   y: 28,
@@ -153,12 +124,12 @@ ghostRight.sprite.src = "./img/ghosts-transp.png";
 
 const ghostLeft = {
   sprite: new Image(),
-  width: 32,
+  width: 30,
   height: 57,
-  x: 94,
-  y: 236,
+  x: 5,
+  y: 237,
   actualStep: 1,
-  totalSteps: 9
+  totalSteps: 4
 };
 ghostLeft.sprite.src = "./img/ghosts-transp.png";
 

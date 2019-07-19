@@ -7,7 +7,7 @@ class Enemie {
     this.color = color;
     this.direction = direction;
     this._appear();
-    // this._animate();
+    this._animate();
   }
 
   _draw(ctx) {
@@ -50,11 +50,20 @@ class Enemie {
 
   _animate() {
     setInterval(() => {
-      ghost.x += ghost.width;
-      ghost.actualStep++;
-      if (ghost.actualStep === ghost.totalSteps) {
-        ghost.actualStep = 1;
-        ghost.x = 3;
+      if (this.direction === "left") {
+        ghostRight.x += ghostRight.width;
+        ghostRight.actualStep++;
+        if (ghostRight.actualStep === ghostRight.totalSteps) {
+          ghostRight.actualStep = 1;
+          ghostRight.x = 3;
+        }
+      } else if (this.direction === "right") {
+        ghostLeft.x += ghostLeft.width;
+        ghostLeft.actualStep++;
+        if (ghostLeft.actualStep === ghostLeft.totalSteps) {
+          ghostLeft.actualStep = 1;
+          ghostLeft.x = 5;
+        }
       }
     }, 500);
   }
